@@ -68,3 +68,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   highlightActiveLink();
   handleSharedData(); // Process any shared content received from mobile share menu
 });
+
+// Add to components.js
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/farm-management/service-worker.js');
+}
+
+// Listen for the file from the service worker
+navigator.serviceWorker.addEventListener('message', (event) => {
+  if (event.data.action === 'load-image') {
+    const file = event.data.file;
+    const preview = document.getElementById('shared-image-preview');
+    preview.src = URL.createObjectURL(file);
+    document.getElementById('share-preview-container').classList.remove('d-none');
+  }
+});
