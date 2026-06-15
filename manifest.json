@@ -24,11 +24,18 @@
   ],
   "share_target": {
     "action": "/farm-management/index.html",
-    "method": "GET",
+    "method": "POST",
+    "enctype": "multipart/form-data",
     "params": {
       "title": "title",
       "text": "text",
-      "url": "url"
+      "url": "url",
+      "files": [
+        {
+          "name": "media",
+          "accept": ["image/*", "application/pdf"]
+        }
+      ]
     }
   }
 }
