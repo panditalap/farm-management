@@ -41,14 +41,24 @@ function highlightActiveLink() {
 }
 
 /**
+ * Automatically injects the manifest link into the head of any page
+ * that loads this components.js file.
+ */
+function injectManifest() {
+  const link = document.createElement('link');
+  link.rel = 'manifest';
+  link.href = 'manifest.json';
+  document.head.appendChild(link);
+}
+
+/**
  * Master init — loads all shared components, then runs post-load logic.
  * await ensures navbar exists in DOM before highlightActiveLink runs.
  */
 document.addEventListener('DOMContentLoaded', async () => {
-
-  await loadComponent('#navbar-placeholder',  'components/navbar.html');
-  await loadComponent('#footer-placeholder',  'components/footer.html');
-
+  injectManifest(); // injects manifest on each page
+  await loadComponent('#navbar-placeholder',  'components/navbar.html');  // inject navbar on each page
+  await loadComponent('#footer-placeholder',  'components/footer.html');  // inject footer on each page
   highlightActiveLink(); // must run AFTER navbar is in the DOM
 
 });
