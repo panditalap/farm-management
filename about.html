@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Local Project</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — MyProject</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  />
 </head>
-
 <body>
 
-  <main class="container">
-    <div class="display-1">About Page</div>
-    <p>This is my about page.</p>
+  <!-- Navbar goes here — injected by components.js -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- PAGE CONTENT — this is the only part unique to each page -->
+  <main class="container mt-4">
+
+    <h1>About</h1>
+    <p class="lead">This is the about page. It shares the same navbar and footer as every other page.</p>
+
+    <div class="mt-4">
+      <h5>What is being demonstrated here?</h5>
+      <ul>
+        <li>The navbar above was <strong>not copy-pasted</strong> into this file.</li>
+        <li>It was fetched from <code>components/navbar.html</code> and injected.</li>
+        <li>The "About" link in the navbar is highlighted <strong>automatically</strong>.</li>
+        <li>The footer below works the same way.</li>
+      </ul>
+    </div>
+
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/app.js"></script>
-</body>
+  <!-- Footer goes here — injected by components.js -->
+  <div id="footer-placeholder"></div>
 
+  <!-- Scripts: Bootstrap first, then our component loader -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/components.js"></script>
+
+</body>
 </html>
