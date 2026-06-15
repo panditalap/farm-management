@@ -1,13 +1,13 @@
 {
   "name": "My Project Test",
-  "short_name": "AP TEST PRO",
+  "short_name": "Farm Pro",
+  "start_url": "/farm-management/index.html",
+  "scope": "/farm-management/",
   "description": "Smart agriculture and activity management system.",
-  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#212529",
   "theme_color": "#212529",
   "orientation": "portrait",
-  "scope": "/",
   "icons": [
     {
       "src": "https://cdn-icons-png.flaticon.com/512/3069/3069176.png",
@@ -21,5 +21,14 @@
       "type": "image/png",
       "purpose": "any"
     }
-  ]
+  ],
+  "share_target": {
+    "action": "/farm-management/index.html",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
 }
