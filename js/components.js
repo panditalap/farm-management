@@ -33,20 +33,29 @@ function injectManifest() {
 }
 
 /**
- * Checks for incoming shared data and shows a confirmation
+ * Processes shared data and displays it on the index page
  */
 function handleSharedData() {
   const params = new URLSearchParams(window.location.search);
   
-  // Check if any shared parameters exist
-  if (params.has('title') || params.has('text') || params.has('url')) {
-    const title = params.get('title') || 'Shared Content';
-    const text = params.get('text') || '';
+  if (params.has('title') || params.has('url')) {
+    const title = params.get('title') || 'Shared Item';
     const url = params.get('url') || '';
-
-    alert(`Successfully received share!\n\nTitle: ${title}\nInfo: ${text}\nLink: ${url}`);
     
-    // Clean URL so the alert doesn't reappear on page refresh
+    // Show the container
+    const container = document.getElementById('share-preview-container');
+    if (container) {
+      container.classList.remove('d-none');
+      document.getElementById('shared-content-info').innerHTML = `<p><strong>${title}</strong><br><a href="${url}" target="_blank">${url}</a></p>`;
+      
+      // If the URL ends in an image extension, show the image
+      const imagePreview = document.getElementById('shared-image-preview');
+      if (url.match(/\.(jpeg|jpg|gif|png)$/)) {
+        imagePreview.src = url;
+      }
+    }
+    
+    // Clean URL
     window.history.replaceState({}, document.title, window.location.pathname);
   }
 }
